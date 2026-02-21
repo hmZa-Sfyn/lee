@@ -1,0 +1,29 @@
+
+void:hello = ->
+    print "Hello from EsoLambda!"
+    print "This is a very small test."
+
+int:square = int:x ->
+    x * x
+
+int:sum-of-squares = int:a | int:b ->
+    square a + square b
+
+void:demo = ->
+    let int:x = 7
+    let int:y = 8
+    let int:result = sum-of-squares x | y
+
+    print $"x = {x}, y = {y}"
+    print $"x² + y² = {result}"
+
+    if result > 100 ->
+        print "That's quite large!"
+    else
+        print "Pretty normal size."
+
+# The entry point (called automatically if present)
+void:main = ->
+    hello
+    demo
+    print "Done."
